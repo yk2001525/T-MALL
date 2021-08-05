@@ -10,13 +10,14 @@
         <div>企业采购</div>
       </div>
     </div>
-    <div class="right-part">
+    <div @mouseenter="isshow=true" @mouseleave="isshow=false" class="right-part">
+        <i style="font-size:36px;color:#333;background-color:#fff" class="iconfont icon-gouwuche2 cart"></i>
       <span class="money">
         ￥0.00
         <span style="font-size:12px">元</span>
       </span>
       
-      <span class="weight">
+      <span :class="isshow?'weight-active':'weight'" >
         0kg
       </span>
     </div>
@@ -24,10 +25,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data(){
+        return{
+            isshow:false
+        }
+    },
+    methods:{
+        enter(){
+
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
+.cart{
+    position: relative;
+    right: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+
+}
 .root {
   display: flex;
   justify-content: space-between;
@@ -69,7 +88,16 @@ export default {};
     .weight{
         font-size: 12px;
         color: #fff;
+        margin-right: 50px;
+        transition: .3s;
+    }
+    .weight-active{
+
+        font-size: 12px;
+        color: #fff;
         margin-right: 80px;
+        transition: .3s;
+
     }
   }
 }

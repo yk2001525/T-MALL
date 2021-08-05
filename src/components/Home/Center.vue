@@ -4,8 +4,8 @@
     <div class="center">
       <div class="swiper">
         <el-carousel height="291px">
-          <el-carousel-item v-for="item in 4" :key="item">
-            <!-- <h3 class="small"></h3> -->
+          <el-carousel-item v-for="item in List" :key="item">
+                <img :src="item" alt="">
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -54,7 +54,14 @@ export default {
     LeftNav,
   },
   data() {
-    return {};
+    return {
+        "List":["https://img.alicdn.com/imgextra/i3/O1CN01DOj1UK1HeeohTrg5x_!!6000000000783-0-tps-750-291.jpg_Q90.jpg",
+        "https://img.alicdn.com/imgextra/i1/O1CN01vVcobb1ZR49B0QOf2_!!6000000003190-0-tps-750-291.jpg_Q90.jpg",
+        "https://img.alicdn.com/imgextra/i3/O1CN01ATamvd1Oppn8b38Qf_!!6000000001755-0-tps-750-291.jpg_Q90.jpg",
+        "https://img.alicdn.com/imgextra/i3/2200633062791/O1CN01V8N0Jp1WUK7BVrsHX_!!2200633062791-0-scmitem6000.jpg_Q90.jpg",
+        "https://img.alicdn.com/imgextra/i3/699634751/O1CN01K7vuWA1ky0KL6bGE8_!!699634751.jpg_Q90.jpg",
+        "https://gw.alicdn.com/imgextra/i3/O1CN01466TET1QKLnQskm7p_!!6000000001957-0-tps-750-291.jpg_Q90.jpg"]
+    };
   },
 };
 </script>
@@ -82,7 +89,7 @@ export default {
       position: absolute;
   }
 }
-.el-carousel__item h3 {
+/* .el-carousel__item h3 {
   color: #475669;
   font-size: 14px;
   opacity: 0.75;
@@ -96,5 +103,5 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
-}
+} */
 </style>

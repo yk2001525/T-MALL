@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6572",
+      "name": "回流区价格",
+      "font_class": "huiliuqujiage",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "6573",
+      "name": "回流区活动",
+      "font_class": "huiliuquhuodong",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "6574",
+      "name": "回流区日用百货",
+      "font_class": "huiliuquriyongbaihuo",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "925465",
+      "name": "回流区进口食品",
+      "font_class": "huiliuqujinkoushipin",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "925467",
+      "name": "回流区食品",
+      "font_class": "huiliuqushipin",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "6571",
+      "name": "购物车",
+      "font_class": "gouwuche2",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
       "icon_id": "6692",
       "name": "满88元包邮",
       "font_class": "man88yuanbaoyou",
