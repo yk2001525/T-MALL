@@ -4,7 +4,7 @@
       <span v-for="(item,index) in MenuList">
      <left-nav-item>
          <template v-slot:title>
-            <i style="margin-right:13px;" class="iconfont" :class="item.icon"></i>{{item.title}}
+            <i style="margin-right:13px;" class="iconfont" :class="item.icon"></i><span>{{item.title}}</span>
          </template>
          <template v-slot:item><span style="margin-right:13px;cursor: pointer;" v-for="i in item.item">{{i}}</span></template>
      </left-nav-item>
@@ -26,42 +26,42 @@ export default {
                 {
                     "title":"进口食品",
                     "item":["牛奶","零食","饼干","方便面","粮油"],
-                    "icon":"icon-jinkoushangpin"
+                    "icon":"icon-jinkoushangpin-copy"
                 },
                 {
                     "title":"食品饮料",
                     "item":["牛奶","坚果","饼干","方便面","粮油"],
-                    "icon":"icon-yinliao"
+                    "icon":"icon-yinliao-copy"
                 },
                 {
                     "title":"粮油副食",
                     "item":["油","大米","调料","方便面","火腿肠"],
-                    "icon":"icon-liangyoufushi"
+                    "icon":"icon-liangyoufushi-copy"
                 },
                 {
                     "title":"美容洗护",
                     "item":["洗发","沐浴","牙膏","洁面","卫生巾"],
-                    "icon":"icon-meirongxihu"
+                    "icon":"icon-meirongxihu-copy"
                 },
                 {
                     "title":"家居家电",
                     "item":["毛巾","家电","玻璃杯","衣架","锅"],
-                    "icon":"icon-mianxingjiandaotubiao"
+                    "icon":"icon-mianxingjiandaotubiao-copy"
                 },
                 {
                     "title":"家庭清洁",
                     "item":["纸","洗衣","洗洁精","垃圾袋","洁厕"],
-                    "icon":"icon-juanzhi"
+                    "icon":"icon-juanzhi-copy"
                 },
                 {
                     "title":"母婴用品",
                     "item":["纸尿裤","奶粉","湿巾","洗护","玩具"],
-                    "icon":"icon-muying"
+                    "icon":"icon-muying-copy"
                 },
                 {
                     "title":"生活服务",
                     "item":["信用卡还款","转账","充话费","点券"],
-                    "icon":"icon-chongzhi"
+                    "icon":"icon-chongzhi-copy"
                 },
 
             ]

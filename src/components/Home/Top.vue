@@ -4,7 +4,7 @@
           <div class="top-left">
               <span> <i class="iconfont icon-fangzi01"></i> 天猫首页</span>
               <span>喵，欢迎来到天猫</span>
-              <span>请登录</span>
+              <span @click="tologinin">请登录</span>
               <span>免费注册</span>
           </div>
           <div class="top-right">
@@ -24,11 +24,18 @@
 
 <script>
 export default {
-
+    methods:{
+        tologinin(){
+            this.$router.replace('/login')
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
+    .iconfont{
+        color: #FF0036;
+    }
     .root{
         background-color: #f2f2f2;
         height: 26px;

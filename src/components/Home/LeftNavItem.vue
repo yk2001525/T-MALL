@@ -78,6 +78,9 @@ export default {
       transition: all 0.1s;
       color: #515151;
       font-size: 14px;
+        span{
+            color: #515151!important;
+        }
 
     }
     .item {

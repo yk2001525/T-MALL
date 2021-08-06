@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2722792 */
-  src: url('iconfont.woff2?t=1628145173775') format('woff2'),
-       url('iconfont.woff?t=1628145173775') format('woff'),
-       url('iconfont.ttf?t=1628145173775') format('truetype');
+  src: url('iconfont.woff2?t=1628237084921') format('woff2'),
+       url('iconfont.woff?t=1628237084921') format('woff'),
+       url('iconfont.ttf?t=1628237084921') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yonghu:before {
+  content: "\e634";
+}
+
+.icon-suo:before {
+  content: "\e644";
 }
 
 .icon-huiliuqujiage:before {
@@ -39,6 +47,18 @@
 
 .icon-man88yuanbaoyou:before {
   content: "\e60a";
+}
+
+.icon-juanzhi-copy:before {
+  content: "\e798";
+}
+
+.icon-muying-copy:before {
+  content: "\e799";
+}
+
+.icon-chongzhi-copy:before {
+  content: "\e79a";
 }
 
 .icon-juanzhi:before {
@@ -99,5 +119,25 @@
 
 .icon-quan1:before {
   content: "\e69d";
+}
+
+.icon-jinkoushangpin-copy:before {
+  content: "\e793";
+}
+
+.icon-yinliao-copy:before {
+  content: "\e794";
+}
+
+.icon-liangyoufushi-copy:before {
+  content: "\e795";
+}
+
+.icon-meirongxihu-copy:before {
+  content: "\e796";
+}
+
+.icon-mianxingjiandaotubiao-copy:before {
+  content: "\e797";
 }
 

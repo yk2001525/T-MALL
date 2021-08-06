@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "902044",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "1621660",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
       "icon_id": "6572",
       "name": "回流区价格",
       "font_class": "huiliuqujiage",
@@ -53,6 +67,27 @@
       "font_class": "man88yuanbaoyou",
       "unicode": "e60a",
       "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "23403427",
+      "name": "卷纸",
+      "font_class": "juanzhi-copy",
+      "unicode": "e798",
+      "unicode_decimal": 59288
+    },
+    {
+      "icon_id": "23403431",
+      "name": "母婴",
+      "font_class": "muying-copy",
+      "unicode": "e799",
+      "unicode_decimal": 59289
+    },
+    {
+      "icon_id": "23403432",
+      "name": "充值",
+      "font_class": "chongzhi-copy",
+      "unicode": "e79a",
+      "unicode_decimal": 59290
     },
     {
       "icon_id": "1015",
@@ -158,6 +193,41 @@
       "font_class": "quan1",
       "unicode": "e69d",
       "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "23403331",
+      "name": "进口商品",
+      "font_class": "jinkoushangpin-copy",
+      "unicode": "e793",
+      "unicode_decimal": 59283
+    },
+    {
+      "icon_id": "23403339",
+      "name": "饮品",
+      "font_class": "yinliao-copy",
+      "unicode": "e794",
+      "unicode_decimal": 59284
+    },
+    {
+      "icon_id": "23403345",
+      "name": "粮油副食",
+      "font_class": "liangyoufushi-copy",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    },
+    {
+      "icon_id": "23403403",
+      "name": "美容洗护",
+      "font_class": "meirongxihu-copy",
+      "unicode": "e796",
+      "unicode_decimal": 59286
+    },
+    {
+      "icon_id": "23403404",
+      "name": "面性剪刀图标",
+      "font_class": "mianxingjiandaotubiao-copy",
+      "unicode": "e797",
+      "unicode_decimal": 59287
     }
   ]
 }
