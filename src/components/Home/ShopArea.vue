@@ -1,10 +1,10 @@
 <template>
   <div class="root">
       <div class="top">
-          进口酒饮粮油
+          {{name}}
       </div>
       <div class="body">
-          <div class="left">
+          <div :style="{'background-color':color}" class="left">
               <div class="words">
                   <div><span>其他食用油</span></div>
                   <div><span>调味汁/油</span></div>
@@ -84,7 +84,10 @@
 
 <script>
 export default {
-
+  props:{
+    name:String,
+    color:String
+  },
 }
 </script>
 

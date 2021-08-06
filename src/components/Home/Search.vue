@@ -11,8 +11,8 @@
             <div style="display:inline-block">搜索</div>
       </div>
       <div class="mark">
-          <span><i class="iconfont icon-quan1"></i>一站式购齐</span>
-          <span><i class="iconfont icon-man88yuanbaoyou"></i>满88包邮</span>
+          <span><i style="color:#30b30e;font-size:14px" class="iconfont icon-quan1"></i>一站式购齐</span>
+          <span><i style="color:#30b30e" class="iconfont icon-man88yuanbaoyou"></i>满88包邮</span>
           <span>
           <img src="https://img.alicdn.com/tps/i1/TB1L25iFFXXXXXcbpXXgBrbGpXX-36-36.png" alt="">
           </span>
@@ -52,13 +52,15 @@ export default {
             display: inline-block;
             margin-top: 10px;
 
+
             .detail{
                 border: 1px solid #e5e5e5;
                 font-size: 16px;
                 font-weight: 400;
                 color: #30b30e;
-                padding: 6px 12px;
+                padding: 8px 12px;
                 border-radius: 3px;
+
                 /* margin-top: 15px; */
 
             }
