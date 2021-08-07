@@ -3,9 +3,11 @@
     <div class="top">
       <div class="top-left">
         <span> <i class="iconfont icon-fangzi01"></i> 天猫首页</span>
-        <span>喵，欢迎来到天猫</span>
-        <span @click="tologinin">请登录</span>
-        <span>免费注册</span>
+        <span v-show="!islogin">喵，欢迎来到天猫</span>
+        <span v-show="!islogin" @click="tologinin">请登录</span>
+        <span v-show="islogin">Hi,{{userInfo.user_id}}</span>
+        <span v-show="!islogin">免费注册</span>
+        <span @click="logout" v-show="islogin">退出</span>
       </div>
       <div class="top-right">
         <span
@@ -122,8 +124,20 @@
 
 <script>
 export default {
+  created(){
+    var token = localStorage.getItem('accessToken')
+    var userinfo = JSON.parse(localStorage.getItem('userInfo')) 
+    if(token){
+      this.islogin = true
+      this.userInfo = userinfo
+      this.$store.commit('saveLogin',true)
+      this.$store.commit('saveUserInfo',userinfo)
+    }
+  },
   data() {
     return {
+      userInfo:[],
+      islogin:false,
       navshow: false,
       bussiness: false,
       phone: false,
@@ -179,6 +193,14 @@ export default {
     tologinin() {
       this.$router.replace("/login");
     },
+    // 注销
+    logout(){
+      console.log('注销')
+      localStorage.clear()
+      this.$store.commit('saveLogin',false)
+      this.$store.commit('saveUserInfo',[])
+      this.$router.replace("/login");
+    }
   },
 };
 </script>

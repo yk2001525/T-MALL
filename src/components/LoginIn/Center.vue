@@ -4,17 +4,22 @@
           <div class="loginin">
               <img src="../../assets/loginin.png" alt="">
               <div class="title">
-                  <span style="border-bottom: 2px solid #000;">密码登录</span>
+                  <span @click="islogin=true" :style="islogin?'border-bottom: 2px solid #000;':''">密码登录</span>
+                  <span style="margin-left:10px" @click="islogin=false" :style="islogin?'':'border-bottom: 2px solid #000;'" >免费注册</span>
+
+                  
               </div>
               <div class="input">
                   <div class="username"><i class="iconfont user icon-yonghu"></i></div>
                   <div class="usernames"><i class="iconfont user icon-suo"></i></div>
 
-                  <input  placeholder="会员名/邮箱/手机号" type="text">
-                  <input placeholder="请输入登陆密码" type="text">
-                  <div class="login">
-                      登录
+                  <input v-model="userId" placeholder="会员名/邮箱/手机号" type="text">
+                  <input v-model="userPassword" placeholder="请输入登陆密码" type="text">
+                  <div @click="login" v-show="islogin" class="login">
+                    登陆
                   </div>
+                  <div @click="register" v-show="!islogin" class="login">注册</div>
+                
                   <div class="login-bottom">
                       <span>忘记密码</span>
                       <span>忘记用户名</span>
@@ -28,8 +33,46 @@
 </template>
 
 <script>
+import {post} from '../../network/request'
 export default {
 
+    data(){
+        return{
+            islogin:true,
+            userId:'1',
+            userPassword:'12345678'
+        }
+    },
+    methods:{
+        login(){
+            let that = this
+            post('/users/loginin',{
+                userId:that.userId,
+                userPassword:that.userPassword
+            }).then((res)=>{
+                  if(res.data.code=== 200){
+                      console.log('登陆成功')
+                      console.log(res)
+                      localStorage.setItem('accessToken', 'Bearer ' + res.data.token)
+                      localStorage.setItem('userInfo',JSON.stringify(res.data.userInfo))
+                      that.$router.replace('/')
+                 }
+            })
+        },
+        register(){
+            let that = this
+            post('/users/newuser',{
+                userId:that.userId,
+                userPassword:that.userPassword
+            }).then((res)=>{
+                if(res.data.errno === -1){
+                    console.log('用户名已存在')
+                }else{
+                    console.log('注册成功')
+                }
+            })
+        }
+    }
 }
 </script>
 
@@ -99,6 +142,9 @@ export default {
                     margin: 9px 10px 0 0;
                     font-weight: 700;
                     margin-bottom: 25px;
+                    span{
+                        cursor: pointer;
+                    }
                 }
                 .input{
                     width: 300px;

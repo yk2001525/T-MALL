@@ -24,7 +24,9 @@
             <span>价格</span>
             <span>删除</span>
           </div>
-          <div class="reel-detail">如果您还未登录，可能导致购物车为空，请马上登录</div>
+          <div v-show="!isLogin" class="reel-detail">如果您还未登录，可能导致购物车为空，请马上登录</div>
+          <div v-show="isLogin" class="reel-detail">当前购物车为空</div>
+
       </div>
         </el-collapse-transition>
         <i
@@ -75,6 +77,14 @@ export default {
       scrollnum:0
       
     };
+  },
+  computed:{
+    isLogin(){
+      return this.$store.state.isLogin
+    },
+    userInfo(){
+      return this.$store.state.userInfo
+    }
   },
   watch:{
      isshow(val, oldVal){//普通的watch监听
@@ -281,7 +291,7 @@ export default {
         padding: 30px 10px 0px;
         font-size: 12px;
         font-weight: 400;
-        
+
       }
     }
 

@@ -1,12 +1,16 @@
 <template>
   <div class="root">
-      <img src="https://img.alicdn.com/tfs/TB1_Gn8RXXXXXXqaFXXXXXXXXXX-380-54.png" alt="">
+      <img @click="toindex" src="https://img.alicdn.com/tfs/TB1_Gn8RXXXXXXqaFXXXXXXXXXX-380-54.png" alt="">
   </div>
 </template>
 
 <script>
 export default {
-
+    methods:{
+        toindex(){
+            this.$router.replace('/')
+        }
+    }
 }
 </script>
 
@@ -19,6 +23,7 @@ export default {
         img{
             width: 190px;
             margin-top: 8px;
+            cursor: pointer;
         }
         
     }

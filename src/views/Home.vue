@@ -36,6 +36,14 @@ export default {
     NavBottom,
     Bottom,
 
+  },
+  created(){
+    var token = localStorage.getItem('accessToken')
+    if(token === null){
+      console.log('未登录')
+    }else{
+      console.log('已登录')
+    }
   }
 }
 </script>
