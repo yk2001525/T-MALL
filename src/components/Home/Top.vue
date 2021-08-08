@@ -21,7 +21,7 @@
           </div>
           我的淘宝</span
         >
-        <span> <i class="iconfont icon-gouwuche"></i> 购物车</span>
+        <span @click="toshopcart" > <i class="iconfont icon-gouwuche"></i> 购物车</span>
         <span
           :style="favorite ? 'background-color:#fff' : ''"
           @mouseenter="favorite = true"
@@ -200,6 +200,9 @@ export default {
       this.$store.commit('saveLogin',false)
       this.$store.commit('saveUserInfo',[])
       this.$router.replace("/login");
+    },
+    toshopcart(){
+      this.$router.replace("/shopcart");
     }
   },
 };
