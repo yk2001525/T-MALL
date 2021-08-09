@@ -1,10 +1,11 @@
 <template>
   <div class="root">
     <div class="top">
-      <img
+      <img v-if="!imgsrc"
         src="https://gw.alicdn.com/tfs/TB1wr5SmUY1gK0jSZFMXXaWcVXa-336-120.png"
         alt=""
       />
+      <img v-else src="	https://img.alicdn.com/tps/i2/TB1ijJ1HFXXXXayXVXXFq5g_FXX-112-40.png" alt="">
       <div v-for="item in List" class="top-item">
         <span class="top-item-title">{{ item.title }}</span>
         <div class="top-item-detail">
@@ -71,6 +72,10 @@
 
 <script>
 export default {
+  props:{
+    imgsrc:{type:Boolean,
+    default:false}
+  },
   data() {
     return {
       List: [

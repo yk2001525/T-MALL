@@ -128,10 +128,17 @@ export default {
     var token = localStorage.getItem('accessToken')
     var userinfo = JSON.parse(localStorage.getItem('userInfo')) 
     if(token){
-      this.islogin = true
-      this.userInfo = userinfo
       this.$store.commit('saveLogin',true)
       this.$store.commit('saveUserInfo',userinfo)
+      this.islogin = true
+      this.userInfo = userinfo
+
+    }
+  },
+  computed:{
+    isloginstate(){
+      this.islogin = this.$store.state.isLogin
+      return this.$store.state.isLogin
     }
   },
   data() {
@@ -202,7 +209,11 @@ export default {
       this.$router.replace("/login");
     },
     toshopcart(){
+      console.log(this.islogin)
+      if(this.islogin === true)
       this.$router.replace("/shopcart");
+      else
+      this.$router.replace("/login")
     }
   },
 };

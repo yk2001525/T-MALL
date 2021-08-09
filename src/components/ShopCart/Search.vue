@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <div class="logo">
+    <div @click="toindex" class="logo">
       <img
         src="https://img.alicdn.com/tps/i2/TB17zkaIpXXXXceXFXXTmwoSVXX-456-80.png"
         alt=""
@@ -57,6 +57,11 @@ export default {
         return{
             cityshow:false
         }
+    },
+    methods:{
+      toindex(){
+        this.$router.replace('/')
+      }
     }
 };
 </script>
@@ -71,6 +76,7 @@ export default {
   margin-bottom: 5px;
   .logo {
     display: inline-block;
+    cursor: pointer;
     /* padding-top: 16px; */
     width: 240px;
     height: 72px;

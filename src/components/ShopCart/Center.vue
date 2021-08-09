@@ -31,7 +31,9 @@
               <div>超值换购活动</div> 满88
           </div>
           <div class="shop-item">
-            <span style="width:45px;height:82px"> <input type="checkbox"> </span>
+              <GoodsItem></GoodsItem>
+
+            <!-- <span style="width:45px;height:82px"> <input type="checkbox"> </span>
             <span style="width:302px;height:110px;" class="goods-detail">
                 <img style="width:80px;height:80px;z-index:3" src="https://img.alicdn.com/bao/uploaded/i4/6000000003397/O1CN01NYPjiv1axs8FoX3o3_!!6000000003397-0-picassoopen.jpg_80x80.jpg" alt="">
                 <span>益达冰凉薄荷木糖醇无糖口香糖56g约40粒清新口气零食品糖果</span>
@@ -42,7 +44,7 @@
             <span style="width:120px;height:110px;background-color:pink"></span>
             <span style="width:105px;height:110px;background-color:yellow"></span>
             <span style="width:100px;height:110px;background-color:black"></span>
-
+ -->
 
             
           </div>
@@ -53,7 +55,12 @@
 </template>
 
 <script>
+import GoodsItem from  './GoodsItem.vue'
+
 export default {
+    components:{
+        GoodsItem
+    }
 
 }
 </script>
@@ -62,7 +69,6 @@ export default {
     .root{
         width: 990px;
         margin: 0 auto;
-        height: auto;
         .top{
             width: 990px;
             height: 33px;
@@ -150,10 +156,10 @@ export default {
                 width: 990px;
                 height: 130px;
                 /* background-color: gray; */
-                padding-top: 20px;
+                /* padding-top: 20px; */
                 box-sizing: border-box;
                 span{
-                    display: inline-block;
+                    /* display: inline-block; */
                     text-align: center;
                 }
             }
