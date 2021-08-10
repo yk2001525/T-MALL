@@ -29,7 +29,7 @@
       </div>
     </div> -->
     <div class="search">
-      <input placeholder="搜索天猫超市商品" type="text" />
+      <input v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
       <div @click="tosearch" style="display:inline-block">搜索</div>
     </div>
     <div class="mark">
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import {post} from '../../network/request'
 import Position from '../Position.vue'
 export default {
     components:{
@@ -65,11 +66,21 @@ export default {
     },
     data(){
         return{
+          keyword:''
         }
     },
     methods:{
       tosearch(){
+        // this.$store.commit('saveSearchKeyword',this.keyword)
+             let that = this
+            this.$store.commit('saveSearchKeyword',this.keyword)
+            post('/product/search',{
+                keyword:this.keyword
+            }).then((res)=>{
+                that.$store.commit('saveSearchResult',res.data.data)
         this.$router.replace('/search')
+
+            })
       }
     }
 };

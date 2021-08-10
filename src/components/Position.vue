@@ -1,6 +1,6 @@
 <template>
       <div class="position">
-      <div @mouseenter="cityshow=true" @mouseleave="cityshow=false" :style="color?'color:#30b30e':'color:#e22a40'" class="detail">
+      <div @mouseenter="cityshow=true" @mouseleave="cityshow=false" :style="{color:color}" class="detail">
         <div v-show="cityshow" class="cityselect">
           <div class="top">
             热门城市:
@@ -26,8 +26,8 @@
 export default {
     props:{
         color:{
-            type:Boolean,
-            default:true
+            type:String,
+            default:'#30b30e'
         }
     },
     data(){

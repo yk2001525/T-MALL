@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import {get} from '../network/request'
 // @ is an alias to /src
 import Top from '../components/Home/Top.vue'
 import Search from '../components/Home/Search.vue'
@@ -38,11 +39,19 @@ export default {
 
   },
   created(){
+    let that =this
     var token = localStorage.getItem('accessToken')
     if(token === null){
       console.log('未登录')
     }else{
       console.log('已登录')
+      get('/users').then((res)=>{
+          const {userId,userPassword} = res.data
+          that.$store.commit('saveUserInfo',{
+            user_id:userId,
+            user_password:userPassword
+          })
+      })
     }
   }
 }
