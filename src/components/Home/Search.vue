@@ -6,7 +6,8 @@
         alt=""
       />
     </div>
-    <div class="position">
+    <Position color='false'></Position>
+    <!-- <div class="position">
       <div @mouseenter="cityshow=true" @mouseleave="cityshow=false" class="detail">
         <div v-show="cityshow" class="cityselect">
           <div class="top">
@@ -26,10 +27,10 @@
         </div>
         郑州<i class="iconfont icon-xiasanjiao"></i>
       </div>
-    </div>
+    </div> -->
     <div class="search">
       <input placeholder="搜索天猫超市商品" type="text" />
-      <div style="display:inline-block">搜索</div>
+      <div @click="tosearch" style="display:inline-block">搜索</div>
     </div>
     <div class="mark">
       <span
@@ -57,11 +58,19 @@
 </template>
 
 <script>
+import Position from '../Position.vue'
 export default {
+    components:{
+      Position
+    },
     data(){
         return{
-            cityshow:false
         }
+    },
+    methods:{
+      tosearch(){
+        this.$router.replace('/search')
+      }
     }
 };
 </script>
@@ -85,7 +94,7 @@ export default {
       padding-top: 10px;
     }
   }
-  .position {
+  /* .position {
     display: inline-block;
     margin-top: 10px;
 
@@ -110,7 +119,6 @@ export default {
           height: 107px;
           padding-top: 20px;
           width: 480px;
-          /* background-color: red; */
           font-size: 14px;
           color: #999;
           padding-left: 12px;
@@ -118,8 +126,6 @@ export default {
             height: 66px;
             margin-top: 20px;
             width: 480px;
-            /* background-color: red; */
-
             span {
               font-size: 14px;
               padding-left: 25px;
@@ -131,10 +137,8 @@ export default {
           }
         }
       }
-
-      /* margin-top: 15px; */
     }
-  }
+  } */
   .search {
     width: 540px;
     margin-left: 77px;
