@@ -1,5 +1,6 @@
 <template>
   <div class="root">
+      <div v-if="shopcartempty">
     <div class="top">
       <div class="top-left">
         全部商品 {{totalsum}}
@@ -43,6 +44,11 @@
         <GoodsItem @allcheck="allcheck" :goodsList="goodsList"></GoodsItem>
       </div>
     </div>
+    </div>
+    <div style="height:400px;padding:88px 156px 100px;box-sizing:border-box;font:700 14px / 20px arial" v-else>
+        您的购物车还是空的，赶紧行动吧！
+        
+    </div>
   </div>
 </template>
 
@@ -55,6 +61,7 @@ export default {
     return {
       goodsList: [],
       allchecked: false,
+      shopcartempty:false
     };
   },
   components: {
@@ -70,6 +77,16 @@ export default {
          totalprice(){
             return this.$store.state.totalPrice
         }
+  },
+  watch:{
+      goodsList(val,oval){
+        //   if(val.length == 0){
+        //       this.shopcartempty = true
+        //   }else{
+        //       this.shopcartempty = false
+        //   }
+          val.length == 0 ? this.shopcartempty = false : this.shopcartempty = true
+      }
   },
   created() {
     post("/product/getshopcart", {

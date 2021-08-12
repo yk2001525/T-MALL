@@ -28,8 +28,8 @@
       </div>
     </div>
     <div class="search">
-      <input v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
-      <div @click="tosearch" style="display:inline-block">搜索</div>
+      <input style="transition:.3s" :style="warnning?'background-color:rgb(253,189,120)':''" v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
+      <div @click="tosearch" style="display:inline-block;cursor:pointer">搜索</div>
     </div>
     <div class="mark">
       <span
@@ -58,7 +58,8 @@ export default {
     data(){
         return{
             cityshow:false,
-            keyword:''
+            keyword:'',
+            warnning:false
         }
     },
     methods:{
@@ -66,8 +67,8 @@ export default {
         this.$router.replace('/')
       },
         tosearch(){
-        // this.$store.commit('saveSearchKeyword',this.keyword)
-             let that = this
+          if(this.keyword != ''){
+              let that = this
             this.$store.commit('saveSearchKeyword',this.keyword)
             post('/product/search',{
                 keyword:this.keyword
@@ -76,6 +77,13 @@ export default {
         this.$router.replace('/search')
 
             })
+          }else{
+            this.warnning = true
+            setTimeout(() => {
+              this.warnning = false
+            }, 300);
+          }
+           
       }
     }
 };

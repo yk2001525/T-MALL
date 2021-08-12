@@ -7,30 +7,9 @@
       />
     </div>
     <Position color='false'></Position>
-    <!-- <div class="position">
-      <div @mouseenter="cityshow=true" @mouseleave="cityshow=false" class="detail">
-        <div v-show="cityshow" class="cityselect">
-          <div class="top">
-            热门城市:
-            <div class="top-detail">
-              <span>北京</span><span>北京</span><span>北京</span
-              ><span>北京</span><span>北京</span><span>北京</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-            </div>
-          </div>
-          <div class="center"></div>
-        </div>
-        郑州<i class="iconfont icon-xiasanjiao"></i>
-      </div>
-    </div> -->
     <div class="search">
-      <input v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
-      <div @click="tosearch" style="display:inline-block">搜索</div>
+      <input style="transition:.3s" :style="warnning?'background-color:rgb(253,189,120)':''" v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
+      <div @click="tosearch" style="display:inline-block;cursor:pointer">搜索</div>
     </div>
     <div class="mark">
       <span
@@ -66,13 +45,14 @@ export default {
     },
     data(){
         return{
-          keyword:''
+          keyword:'',
+          warnning:false
         }
     },
     methods:{
       tosearch(){
-        // this.$store.commit('saveSearchKeyword',this.keyword)
-             let that = this
+        if(this.keyword != ''){
+       let that = this
             this.$store.commit('saveSearchKeyword',this.keyword)
             post('/product/search',{
                 keyword:this.keyword
@@ -81,6 +61,13 @@ export default {
         this.$router.replace('/search')
 
             })
+        }else{
+          this.warnning = true
+          setTimeout(() => {
+            this.warnning = false
+          }, 300);
+        }
+      
       }
     }
 };

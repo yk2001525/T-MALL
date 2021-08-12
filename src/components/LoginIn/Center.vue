@@ -45,7 +45,10 @@ export default {
     },
     methods:{
         login(){
-            let that = this
+            this.userId =  this.userId.replace(/\s/g,"");
+            this.userPassword = this.userPassword.replace(/\s/g,"");
+            if(this.userId != '' && this.userPassword != ''){
+                let that = this
             post('/users/loginin',{
                 userId:that.userId,
                 userPassword:that.userPassword
@@ -58,9 +61,14 @@ export default {
                       that.$router.replace('/')
                  }
             })
+            }
+            
         },
         register(){
-            let that = this
+           this.userId =  this.userId.replace(/\s/g,"");
+            this.userPassword = this.userPassword.replace(/\s/g,"");
+            if(this.userId != '' && this.userPassword != ''){
+                let that = this
             post('/users/newuser',{
                 userId:that.userId,
                 userPassword:that.userPassword
@@ -71,6 +79,8 @@ export default {
                     console.log('注册成功')
                 }
             })
+            }
+          
         }
     }
 }

@@ -67,7 +67,10 @@ export default {
           this.allcheck = false;
         }
       }
-    
+      if(this.productList.length == 0){
+      this.$emit("allcheck", false);
+
+      }else
       this.$emit("allcheck", this.allcheck);
     },
     checkList() {},

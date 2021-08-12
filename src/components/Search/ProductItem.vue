@@ -16,6 +16,7 @@
     <div class="product-price">
       ￥ {{item.product_price}}
       <i @click="addshopcart(index)"
+        
         style="font-size:36px;position:absolute;right:0;top:-5px;cursor:pointer"
         class="iconfont icon-gouwuche2"
       ></i>
