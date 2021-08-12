@@ -2,7 +2,7 @@
   <div class="root">
       <div class="top">
           <div class="left">
-        <span>天猫首页</span>
+        <span style="cursor:pointer" @click="toindex">天猫首页</span>
           <span>Hi,你好</span>
           <span>退出</span>
           </div>
@@ -24,7 +24,11 @@
 
 <script>
 export default {
-
+    methods:{
+        toindex(){
+            this.$router.replace('/')
+        }
+    }
 }
 </script>
 

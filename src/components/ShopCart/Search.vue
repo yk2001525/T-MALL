@@ -28,8 +28,8 @@
       </div>
     </div>
     <div class="search">
-      <input placeholder="搜索天猫超市商品" type="text" />
-      <div style="display:inline-block">搜索</div>
+      <input v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
+      <div @click="tosearch" style="display:inline-block">搜索</div>
     </div>
     <div class="mark">
       <span
@@ -52,15 +52,30 @@
 </template>
 
 <script>
+import { post } from "../../network/request";
+
 export default {
     data(){
         return{
-            cityshow:false
+            cityshow:false,
+            keyword:''
         }
     },
     methods:{
       toindex(){
         this.$router.replace('/')
+      },
+        tosearch(){
+        // this.$store.commit('saveSearchKeyword',this.keyword)
+             let that = this
+            this.$store.commit('saveSearchKeyword',this.keyword)
+            post('/product/search',{
+                keyword:this.keyword
+            }).then((res)=>{
+                that.$store.commit('saveSearchResult',res.data.data)
+        this.$router.replace('/search')
+
+            })
       }
     }
 };

@@ -45,12 +45,29 @@ export default {
     methods:{
         addshopcart(index){  
             console.log(this.searchResult[index])
-            // console.log(this.userInfo)
-            post('/product/addshopcart',{
+            console.log(this.userInfo)
+            let that =this
+       
+            post('/product/checkshopcart',{
                 user_id:this.userInfo.user_id,
                 product_id:this.searchResult[index].product_id
             }).then((res)=>{
-                console.log(res)
+                // console.log(res)   
+                if(res.data.data.length === 0){
+                        post('/product/addshopcart',{
+                        user_id:that.userInfo.user_id,
+                        product_id:that.searchResult[index].product_id
+                    }).then((res)=>{
+                        console.log(res)
+                    })
+                }else{
+                    post('/product/addshopcartnum',{
+                          user_id:that.userInfo.user_id,
+                        product_id:that.searchResult[index].product_id
+                    }).then((res)=>{
+                        console.log(res)
+                    })
+                }
             })
         }
     }

@@ -5,7 +5,9 @@ export default createStore({
     isLogin:false,
     userInfo:[],
     searchResult:[],
-    searchKeyword:''
+    searchKeyword:'',
+    totalSum:0,
+    totalPrice:0
 },
 mutations: {
     saveLogin(state,value){
@@ -19,6 +21,12 @@ mutations: {
     },
     saveSearchKeyword(state,value){
         state.searchKeyword = value
+    },
+    saveTotalSum(state,value){
+        state.totalSum = value
+    },
+    saveTotalPrice(state,value){
+        state.totalPrice = value
     }
 },
 actions: {
@@ -33,6 +41,12 @@ actions: {
     },
     saveTheSearchKeyword(context,value){
         context.commit('saveTheSearchKeyword',value)
+    },
+    saveTheTotalSum(context,value){
+        context.commit('saveTheTotalSum',value)
+    },
+    saveTheTotalPrice(context,value){
+        context.commit('saveTheTotalPrice',value)
     }
 },
   modules: {
