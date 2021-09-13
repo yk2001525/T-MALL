@@ -1,53 +1,62 @@
 <template>
   <div class="root">
-      <div v-if="shopcartempty">
-    <div class="top">
-      <div class="top-left">
-        全部商品 {{totalsum}}
+    <div v-if="shopcartempty">
+      <div class="top">
+        <div class="top-left">全部商品 {{ totalsum }}</div>
+        <div class="top-right">
+          <div>已选商品（不含运费）</div>
+          <div style="font-weight:700;color:#FF4400">
+            {{ totalprice.toFixed(2) }}
+          </div>
+          <div
+            :style="
+              totalsum ? 'background-color:#f40;' : 'background-color:#b0b0b0;'
+            "
+            style="width:55px;height:25px;"
+          >
+            结算
+          </div>
+        </div>
       </div>
-      <div class="top-right">
-        <div>已选商品（不含运费）</div>
-        <div style="font-weight:700;color:#FF4400">{{totalprice.toFixed(2)}}</div>
-        <div :style="totalsum?'background-color:#f40;':'background-color:#b0b0b0;'" style="width:55px;height:25px;">结算</div>
+      <div class="cart-top">
+        <div class="cart-top-left">
+          <span
+            ><input @change="allchecks" v-model="allchecked" type="checkbox" />
+            全选</span
+          >
+          <span>商品信息</span>
+        </div>
+        <div class="cart-top-right">
+          <span>单价</span>
+          <span>数量</span>
+          <span>金额</span>
+          <span>操作</span>
+        </div>
+      </div>
+      <div class="shop-label">
+        <!-- <input type="checkbox" /> -->
+        <img
+          style="position:relative;top:4px;"
+          src="https://img.alicdn.com/tfs/TB18_6NaEuF3KVjSZK9XXbVtXXa-24-20.png"
+          alt=""
+        />
+        店铺：天猫超市
+      </div>
+      <div class="shop-detail">
+        <div class="shop-detail-top">
+          <div>超值换购活动</div>
+          满88
+        </div>
+        <div class="shop-item">
+          <GoodsItem @allcheck="allcheck" :goodsList="goodsList"></GoodsItem>
+        </div>
       </div>
     </div>
-    <div class="cart-top">
-      <div class="cart-top-left">
-        <span
-          ><input @change="allchecks" v-model="allchecked" type="checkbox" />
-          全选</span
-        >
-        <span>商品信息</span>
-      </div>
-      <div class="cart-top-right">
-        <span>单价</span>
-        <span>数量</span>
-        <span>金额</span>
-        <span>操作</span>
-      </div>
-    </div>
-    <div class="shop-label">
-      <!-- <input type="checkbox" /> -->
-      <img
-        style="position:relative;top:4px;"
-        src="https://img.alicdn.com/tfs/TB18_6NaEuF3KVjSZK9XXbVtXXa-24-20.png"
-        alt=""
-      />
-      店铺：天猫超市
-    </div>
-    <div class="shop-detail">
-      <div class="shop-detail-top">
-        <div>超值换购活动</div>
-        满88
-      </div>
-      <div class="shop-item">
-        <GoodsItem @allcheck="allcheck" :goodsList="goodsList"></GoodsItem>
-      </div>
-    </div>
-    </div>
-    <div style="height:400px;padding:88px 156px 100px;box-sizing:border-box;font:700 14px / 20px arial" v-else>
-        您的购物车还是空的，赶紧行动吧！
-        
+    <div
+      style="height:400px;padding:88px 156px 100px;box-sizing:border-box;font:700 14px / 20px arial"
+      v-else
+    >
+      您的购物车还是空的，赶紧行动吧！
     </div>
   </div>
 </template>
@@ -61,7 +70,7 @@ export default {
     return {
       goodsList: [],
       allchecked: false,
-      shopcartempty:false
+      shopcartempty: false,
     };
   },
   components: {
@@ -71,39 +80,52 @@ export default {
     userInfo() {
       return this.$store.state.userInfo;
     },
-      totalsum(){
-            return this.$store.state.totalSum
-        },
-         totalprice(){
-            return this.$store.state.totalPrice
-        }
+    totalsum() {
+      return this.$store.state.totalSum;
+    },
+    totalprice() {
+      return this.$store.state.totalPrice;
+    },
   },
-  watch:{
-      goodsList(val,oval){
-        //   if(val.length == 0){
-        //       this.shopcartempty = true
-        //   }else{
-        //       this.shopcartempty = false
-        //   }
-          val.length == 0 ? this.shopcartempty = false : this.shopcartempty = true
-      }
+  watch: {
+    goodsList(val, oval) {
+      //   if(val.length == 0){
+      //       this.shopcartempty = true
+      //   }else{
+      //       this.shopcartempty = false
+      //   }
+      val.length == 0
+        ? (this.shopcartempty = false)
+        : (this.shopcartempty = true);
+    },
   },
   created() {
     post("/product/getshopcart", {
       user_id: this.userInfo.user_id,
     }).then((res) => {
       console.log(res.data.data);
-         var pricesum = 0;
-          var sum = 0;
-          for (var i = 0; i < res.data.data.length; i++) {
-            if (res.data.data[i].checked == true) {
-              pricesum = pricesum + res.data.data[i].product_price * res.data.data[i].num;
-              sum = sum + 1;
-            }
-          }
-          this.$store.commit("saveTotalSum", sum);
-          this.$store.commit("saveTotalPrice", pricesum);
+      var pricesum = 0;
+      var sum = 0;
+      for (var i = 0; i < res.data.data.length; i++) {
+        if (res.data.data[i].checked == true) {
+          pricesum =
+            pricesum + res.data.data[i].product_price * res.data.data[i].num;
+          sum = sum + 1;
+        }
+      }
+      this.$store.commit("saveTotalSum", sum);
+      this.$store.commit("saveTotalPrice", pricesum);
       this.goodsList = res.data.data;
+      //判断商品是否全部选中
+      let arr = []
+      res.data.data.map(k=>{
+        if(k.checked == 1){
+          arr.push(1)
+        }
+      })
+      if(arr.length === res.data.data.length){
+        this.allchecked = true
+      }
     });
   },
   methods: {
@@ -124,7 +146,9 @@ export default {
           let sum = 0;
           for (var i = 0; i < that.goodsList.length; i++) {
             if (that.goodsList[i].checked === true) {
-              pricesum = pricesum + that.goodsList[i].product_price*that.goodsList[i].num;
+              pricesum =
+                pricesum +
+                that.goodsList[i].product_price * that.goodsList[i].num;
               sum = sum + 1;
             }
           }
@@ -140,7 +164,9 @@ export default {
           let sum = 0;
           for (var i = 0; i < that.goodsList.length; i++) {
             if (that.goodsList[i].checked === true) {
-              pricesum = pricesum + that.goodsList[i].product_price*that.goodsList[i].num;
+              pricesum =
+                pricesum +
+                that.goodsList[i].product_price * that.goodsList[i].num;
               sum = sum + 1;
             }
           }

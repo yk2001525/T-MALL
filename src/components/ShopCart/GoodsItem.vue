@@ -1,9 +1,10 @@
 <template>
   <div class="root">
     <div
-     
       v-for="(item, index) in productList"
-      :style="item.checked?'background-color:#fff8e1':'background-color:#fff'"
+      :style="
+        item.checked ? 'background-color:#fff8e1' : 'background-color:#fff'
+      "
       style="display: flex!important;flex-wrap:wrap;"
     >
       <div style="width:48px;text-align:center">
@@ -53,7 +54,9 @@ export default {
   data() {
     return {
       productList: this.goodsList,
-      allcheck: true
+      allcheck: true,
+      checkarr:[],
+      arrs:[]
     };
   },
   watch: {
@@ -67,13 +70,15 @@ export default {
           this.allcheck = false;
         }
       }
-      if(this.productList.length == 0){
-      this.$emit("allcheck", false);
+      if (this.productList.length == 0) {
+        this.$emit("allcheck", false);
+      } else this.$emit("allcheck", this.allcheck);
 
-      }else
-      this.$emit("allcheck", this.allcheck);
     },
     checkList() {},
+  },
+  created(){
+    console.log(this.productList)
   },
   computed: {
     userInfo() {
@@ -89,21 +94,32 @@ export default {
       }).then((res) => {
         console.log(res.data);
         that.productList = res.data.data;
-        that.$router.go(0)
-      });       
-
+        that.$router.go(0);
+      });
+    },
+    checks(){
+          console.log(this.productList)
+          this.productList.map(k=>{
+            if(k.checked == 0){
+              this.checkarr.push(false)
+            }else{
+              this.checkarr.push(true)
+            }
+          })
+          console.log(this.checkarr)
     },
     checkbox(index) {
-        let pricesum = 0
-        let sum = 0
-        for(var i = 0;i<this.goodsList.length;i++){
-            if(this.goodsList[i].checked === true){
-                pricesum = pricesum + this.goodsList[i].product_price*this.goodsList[i].num
-                sum = sum+1
-            }
+      let pricesum = 0;
+      let sum = 0;
+      for (var i = 0; i < this.goodsList.length; i++) {
+        if (this.goodsList[i].checked === true) {
+          pricesum =
+            pricesum + this.goodsList[i].product_price * this.goodsList[i].num;
+          sum = sum + 1;
         }
-        this.$store.commit('saveTotalSum',sum)
-        this.$store.commit('saveTotalPrice',pricesum)
+      }
+      this.$store.commit("saveTotalSum", sum);
+      this.$store.commit("saveTotalPrice", pricesum);
       let that = this;
       post("/product/checkproduct", {
         user_id: this.userInfo.user_id,
