@@ -43,7 +43,7 @@
         店铺：天猫超市
       </div>
       <div class="shop-detail">
-        <div class="shop-detail-top">
+        <div :style="allchecked? 'background-color:#fff8e1' : ''" class="shop-detail-top">
           <div>超值换购活动</div>
           满88
         </div>
@@ -126,6 +126,7 @@ export default {
       if(arr.length === res.data.data.length){
         this.allchecked = true
       }
+      this.goodsList.map((item)=>{if(item.checked == 1){item.checked = true}else{item.checked = false}})
     });
   },
   methods: {
