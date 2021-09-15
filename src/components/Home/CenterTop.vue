@@ -88,7 +88,7 @@
             {{ totalweight.toFixed(2) }}kg
           </span>
         </span>
-        <di :style="cartshow?'width:220px':'width:200px'" style="display:inline-block;transition:.3s"></di>
+        <div :style="cartshow?'width:220px':'width:200px'" style="display:inline-block;transition:.3s"></div>
       </div>
       <transition name="el-zoom-in-center">
         <div v-show="FloatNavShow" class="floatnav">
@@ -221,6 +221,11 @@ export default {
         }, 250);
       }
     },
+    cartshow(val,oldVal){
+      if(val  == false){
+        this.reelshow = false
+      }
+    }
   },
   mounted() {
     // 事件监听滚动条

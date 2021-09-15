@@ -1,12 +1,15 @@
 <template>
-  <div class="root">
+  <div style="position:relative" class="root">
     <div class="logo">
       <img
         src="https://gw.alicdn.com/tfs/TB1OpaTmUz1gK0jSZLeXXb9kVXa-666-243.png"
         alt=""
       />
     </div>
+    <div style="width:75px;height:1px"></div>
+    <span style="position:absolute;left:240px">
     <Position color='false'></Position>
+    </span>
     <div class="search">
       <input style="transition:.3s" :style="warnning?'background-color:rgb(253,189,120)':''" @keyup.enter="tosearch" v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
       <div @click="tosearch" style="display:inline-block;cursor:pointer">搜索</div>

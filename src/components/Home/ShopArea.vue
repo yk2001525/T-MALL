@@ -165,10 +165,11 @@ export default {
                 width: 800px;
                 .goods{
                     display: inline-block;
-                    width: 160px;
+                    width: 159px;
                     height: 251px;
-                    margin: 20px;
-                    /* border-right: 1px solid #e7e7e7; */
+                    padding: 20px;
+                    /* margin: 20px;    */
+                    border-right: 1px solid #e7e7e7;
                     img{
                         margin-bottom: 10px;
                     }

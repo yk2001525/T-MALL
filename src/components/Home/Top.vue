@@ -6,7 +6,7 @@
         <span v-show="!islogin">喵，欢迎来到天猫</span>
         <span v-show="!islogin" @click="tologinin">请登录</span>
         <span v-show="islogin">Hi,{{userInfo.user_id}}</span>
-        <span v-show="!islogin">免费注册</span>
+        <span @click="tologinin" v-show="!islogin">免费注册</span>
         <span @click="logout" v-show="islogin">退出</span>
       </div>
       <div class="top-right">

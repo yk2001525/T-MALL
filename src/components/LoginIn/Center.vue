@@ -14,7 +14,7 @@
                   <div class="usernames"><i class="iconfont user icon-suo"></i></div>
 
                   <input v-model="userId" placeholder="会员名/邮箱/手机号" type="text">
-                  <input v-model="userPassword" placeholder="请输入登陆密码" type="text">
+                  <input v-model="userPassword" placeholder="请输入登陆密码" type="password">
                   <div @click="login" v-show="islogin" class="login">
                     登陆
                   </div>
