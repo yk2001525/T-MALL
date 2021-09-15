@@ -11,7 +11,8 @@
         <span style="margin-left:5px">件</span>
         <span>合计（不含运费）：</span>
         <span style="color:#f40;font-size:22px;font-weight:700">{{
-          totalprice.toFixed(2)
+            totalsum != 0 ?
+          totalprice.toFixed(2) :'0.00'
         }}</span>
         <span
           :style="

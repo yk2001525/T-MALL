@@ -4,7 +4,7 @@
       <span v-for="(item,index) in MenuList">
      <left-nav-item>
          <template v-slot:title>
-            <i style="margin-right:13px;" class="iconfont" :class="item.icon"></i><span>{{item.title}}</span>
+            <i style="margin-right:13px;" class="iconfont red" :class="item.icon"></i><span>{{item.title}}</span>
          </template>
          <template v-slot:item><span style="margin-right:13px;cursor: pointer;" v-for="i in item.item">{{i}}</span></template>
      </left-nav-item>
@@ -74,6 +74,9 @@ export default {
     .root{
         /* display: inline-block; */
         /* width: 240px; */
+        .red{
+            /* color: red; */
+        }
         
     }
 </style>

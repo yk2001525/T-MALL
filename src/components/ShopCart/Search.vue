@@ -6,27 +6,7 @@
         alt=""
       />
     </div>
-    <div class="position">
-      <div @mouseenter="cityshow=true" @mouseleave="cityshow=false" class="detail">
-        <div v-show="cityshow" class="cityselect">
-          <div class="top">
-            热门城市:
-            <div class="top-detail">
-              <span>北京</span><span>北京</span><span>北京</span
-              ><span>北京</span><span>北京</span><span>北京</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-              <span>成都</span>
-            </div>
-          </div>
-          <div class="center"></div>
-        </div>
-        郑州<i class="iconfont icon-xiasanjiao"></i>
-      </div>
-    </div>
+    <Position color='#e22a40'></Position>
     <div class="search">
       <input style="transition:.3s" :style="warnning?'background-color:rgb(253,189,120)':''" v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
       <div @click="tosearch" style="display:inline-block;cursor:pointer">搜索</div>
@@ -53,7 +33,7 @@
 
 <script>
 import { post } from "../../network/request";
-
+import Position from '../Position.vue'
 export default {
     data(){
         return{
@@ -61,6 +41,9 @@ export default {
             keyword:'',
             warnning:false
         }
+    },
+    components:{
+      Position
     },
     methods:{
       toindex(){

@@ -6,7 +6,7 @@
         <div class="top-right">
           <div>已选商品（不含运费）</div>
           <div style="font-weight:700;color:#FF4400">
-            {{ totalprice.toFixed(2) }}
+            {{ totalsum != 0 ? totalprice.toFixed(2) : '0.00' }}
           </div>
           <div
             :style="
