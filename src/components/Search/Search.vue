@@ -1,54 +1,76 @@
 <template>
   <div class="root">
-      <div style="width:240px;height:5px">
-      </div>
-      <div style="margin-top:13px">  <Position color='#e22a40'></Position> </div>
+    <div style="width:240px;height:5px"></div>
+    <div style="margin-top:13px"><Position color="#e22a40"></Position></div>
     <div class="search">
-      <input v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
-      <div @click="tosearch" style="display:inline-block">搜索</div>
+      <input
+        style="transition:.3s"
+        :style="warnning ? 'background-color:rgb(253,189,120)' : ''"
+        @keyup.enter="tosearch"
+        v-model="keyword"
+        placeholder="搜索天猫超市商品"
+        type="text"
+      />
+      <div @click="tosearch" style="display:inline-block;cursor:pointer">搜索</div>
     </div>
   </div>
 </template>
 
 <script>
-import {post} from '../../network/request'
+import { post } from "../../network/request";
 
-import Position from '../Position'
+import Position from "../Position";
 export default {
-    components:{
-        Position
+  components: {
+    Position,
+  },
+  data() {
+    return {
+      keyword: "",
+      warnning: false,
+    };
+  },
+  computed: {},
+  methods: {
+    // tosearch(){
+    //     let that = this
+    //     this.$store.commit('saveSearchKeyword',this.keyword)
+    //     post('/product/search',{
+    //         keyword:this.keyword
+    //     }).then((res)=>{
+    //         that.$store.commit('saveSearchResult',res.data.data)
+    //     })
+    // }
+    tosearch() {
+      if (this.keyword != "") {
+        let that = this;
+        this.$store.commit("saveSearchKeyword", this.keyword);
+        post("/product/search", {
+          keyword: this.keyword,
+        }).then((res) => {
+          that.$store.commit("saveSearchResult", res.data.data);
+        });
+      } else {
+        this.warnning = true;
+        setTimeout(() => {
+          this.warnning = false;
+        }, 300);
+      }
     },
-    data(){
-        return {
-            keyword:''
-        }
-    },
-    computed:{
-    },
-    methods:{
-        tosearch(){
-            let that = this
-            this.$store.commit('saveSearchKeyword',this.keyword)
-            post('/product/search',{
-                keyword:this.keyword
-            }).then((res)=>{
-                that.$store.commit('saveSearchResult',res.data.data)
-            })
-        }
-    },
-    created(){
-        if(this.$store.state.searchKeyword)
-        this.keyword = this.$store.state.searchKeyword
-    }
-}
+  },
+  created() {
+    if (this.$store.state.searchKeyword)
+      this.keyword = this.$store.state.searchKeyword;
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-    .root{
-        width: 990px;
-        margin: 0 auto;
-        display: flex;
-         .search {
+.root {
+  width: 990px;
+  margin: 0 auto;
+  display: flex;
+  .search {
     width: 387px;
     margin-left: 25px;
     margin-top: 20px;
@@ -70,7 +92,5 @@ export default {
       color: #fff;
     }
   }
-
-    }
-    
+}
 </style>

@@ -8,7 +8,7 @@
     </div>
     <Position color='false'></Position>
     <div class="search">
-      <input style="transition:.3s" :style="warnning?'background-color:rgb(253,189,120)':''" v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
+      <input style="transition:.3s" :style="warnning?'background-color:rgb(253,189,120)':''" @keyup.enter="tosearch" v-model="keyword" placeholder="搜索天猫超市商品" type="text" />
       <div @click="tosearch" style="display:inline-block;cursor:pointer">搜索</div>
     </div>
     <div class="mark">

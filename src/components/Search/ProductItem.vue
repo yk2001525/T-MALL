@@ -26,6 +26,7 @@
 
 <script>
 import {post} from '../../network/request'
+import { ElMessage } from 'element-plus'
 
 export default {
     data(){
@@ -59,14 +60,20 @@ export default {
                         user_id:that.userInfo.user_id,
                         product_id:that.searchResult[index].product_id
                     }).then((res)=>{
-                        console.log(res)
+                      ElMessage.success({
+                        message:'添加成功',
+                        type:'success'
+                      })
                     })
                 }else{
                     post('/product/addshopcartnum',{
                           user_id:that.userInfo.user_id,
                         product_id:that.searchResult[index].product_id
                     }).then((res)=>{
-                        console.log(res)
+                        ElMessage.success({
+                        message:'添加成功',
+                        type:'success'
+                      })
                     })
                 }
             })

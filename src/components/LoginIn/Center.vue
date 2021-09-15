@@ -34,13 +34,20 @@
 
 <script>
 import {post} from '../../network/request'
+import { ElMessage } from 'element-plus'
 export default {
 
     data(){
         return{
             islogin:true,
-            userId:'1',
-            userPassword:'12345678'
+            userId:'',
+            userPassword:''
+        }
+    },
+    watch:{
+        islogin(){
+            this.userId = ''
+            this.userPassword = ''
         }
     },
     methods:{
@@ -54,11 +61,16 @@ export default {
                 userPassword:that.userPassword
             }).then((res)=>{
                   if(res.data.code=== 200){
-                      console.log('登陆成功')
+                      ElMessage.success({
+                          message:'登陆成功',
+                          type:'success'
+                      })
                       console.log(res)
                       localStorage.setItem('accessToken', 'Bearer ' + res.data.token)
                       localStorage.setItem('userInfo',JSON.stringify(res.data.userInfo))
                       that.$router.replace('/')
+                 }else{
+                     ElMessage.error('登录失败')
                  }
             })
             }
@@ -74,9 +86,14 @@ export default {
                 userPassword:that.userPassword
             }).then((res)=>{
                 if(res.data.errno === -1){
-                    console.log('用户名已存在')
+                    ElMessage.error('注册失败')
                 }else{
-                    console.log('注册成功')
+                    ElMessage.success({
+                        message:'注册成功',
+                        type:'success'
+                    })
+                    this.userId = ''
+                    this.userPassword = ''
                 }
             })
             }

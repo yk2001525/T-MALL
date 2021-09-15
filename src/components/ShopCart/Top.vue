@@ -9,7 +9,7 @@
           <div class="right">
               <span>我的淘宝</span>
               <span>我关注的品牌</span>
-              <span>购物车</span>
+              <span style="cursor:pointer" @click="toshopcart">购物车</span>
               <span>收藏夹</span>
               <span>|</span>
               <span>淘宝网</span>
@@ -27,6 +27,9 @@ export default {
     methods:{
         toindex(){
             this.$router.replace('/')
+        },
+        toshopcart(){
+            this.$router.replace('/shopcart')
         }
     }
 }

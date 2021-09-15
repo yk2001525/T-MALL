@@ -6,14 +6,7 @@
           <div class="top">
             热门城市:
             <div class="top-detail">
-              <span>北京</span><span>上海</span><span>杭州</span
-              ><span>广州</span><span>天津</span><span>苏州</span>
-              <span>成都</span>
-              <span>深圳</span>
-              <span>南京</span>
-              <span>重庆</span>
-              <span>南昌</span>
-              <span>武汉</span>
+              <span @click="updatehotcity(index)" v-for="(item,index) in hotcity">{{item}}</span>
             </div>
             <div class="select-area">
                 <div @mouseenter="activeIndex = 0" :class="activeIndex == 0 ?  'select-active':''">ABCDE  <div class="g"></div></div>
@@ -59,6 +52,7 @@ export default {
             cityshow:false,
             activeIndex:0,
             selectedcity:'郑州',
+            hotcity:['北京','上海','杭州','广州','天津','苏州','成都','深圳','南京','重庆','南昌','武汉'],
             cityList1:[
               {
                 title:'A',
@@ -164,6 +158,9 @@ export default {
     methods:{
       updatecity(name){
         this.selectedcity = name
+      },
+      updatehotcity(index){
+        this.selectedcity = this.hotcity[index]
       }
     }
 
@@ -213,6 +210,10 @@ export default {
               color: #333;
               width: 48px;
               display: inline-block;
+              cursor: pointer;
+            }
+            span:hover{
+              color: #e22a40;
             }
           }
           .select-area{
