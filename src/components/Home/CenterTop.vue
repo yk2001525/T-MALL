@@ -355,13 +355,11 @@ export default {
 .floatnav {
   width: 79px;
   height: 223px;
-  /* background-color: red; */
   position: absolute;
   left: -82px;
   top: 50px;
   z-index: 2;
   transition: 0.3s;
-  /* border: 1px solid #e4e4e4; */
   .floatnav-item {
     width: 100%;
     height: 22px;
@@ -524,14 +522,12 @@ export default {
     .weight {
       font-size: 12px;
       color: #fff;
-      /* margin-right: 60px; */
       margin-left:10px;
       transition: 0.3s;
     }
     .weight-active {
       font-size: 12px;
       color: #fff;
-      /* margin-right: 104px; */
       margin-left:10px;
 
       transition: 0.3s;

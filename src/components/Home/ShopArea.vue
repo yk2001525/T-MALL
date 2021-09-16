@@ -7,14 +7,6 @@
           <div  :style="{'background-color':color}" class="left">
               <div class="words">
                   <div @mouseenter="ishover[index]=true" @mouseleave="ishover[index]=false" v-for="(item,index) in List" :style="ishover[index]?'background-color:'+color+';border:1px solid #666;box-sizing:border-box;cursor:pointer':''"><span :style="ishover[index]?'color:#fff;':''">{{item}}</span></div>
-                  <!-- <div><span>调味汁/油</span></div>
-                  <div><span>调味料</span></div>
-                  <div><span>大米</span></div>
-                  <div><span>橄榄油</span></div>
-                  <div><span>调味酱</span></div>
-                  <div><span>烘焙原料</span></div>
-                  <div><span>谷物冲饮</span></div>
-                  <div><span>咖啡</span></div> -->
               </div>
           </div>
           <div class="center">
@@ -116,9 +108,7 @@ export default {
             color: #2f2f2f;
             font-size: 20px;
             width: 1180px;
-            /* float: left; */
             font-weight: 700;
-            /* box-sizing: border-box; */
             padding: 5px;
             border-bottom: 2px solid black;
         }

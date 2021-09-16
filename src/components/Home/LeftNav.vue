@@ -71,12 +71,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .root{
-        /* display: inline-block; */
-        /* width: 240px; */
-        .red{
-            /* color: red; */
-        }
-        
-    }
+
+    
 </style>

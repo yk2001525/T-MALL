@@ -95,51 +95,6 @@ export default {
       padding-top: 10px;
     }
   }
-  /* .position {
-    display: inline-block;
-    margin-top: 10px;
-
-    .detail {
-      border: 1px solid #e5e5e5;
-      font-size: 16px;
-      font-weight: 400;
-      color: #30b30e;
-      padding: 8px 12px;
-      border-radius: 3px;
-      position: relative;
-      .cityselect {
-        width: 482px;
-        height: 795px;
-        background-color: #fff;
-        position: absolute;
-        z-index: 11;
-        top: 32px;
-        left: -1px;
-        border: 1px solid #e5e5e5;
-        .top {
-          height: 107px;
-          padding-top: 20px;
-          width: 480px;
-          font-size: 14px;
-          color: #999;
-          padding-left: 12px;
-          .top-detail {
-            height: 66px;
-            margin-top: 20px;
-            width: 480px;
-            span {
-              font-size: 14px;
-              padding-left: 25px;
-              margin-bottom: 12px;
-              color: #333;
-              width: 48px;
-              display: inline-block;
-            }
-          }
-        }
-      }
-    }
-  } */
   .search {
     width: 540px;
     margin-left: 77px;

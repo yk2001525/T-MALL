@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <top-img></top-img>
     <Top></Top>
     <Search></Search>
     <center-top></center-top>
@@ -18,6 +19,7 @@
 <script>
 import {get} from '../network/request'
 // @ is an alias to /src
+import TopImg from '../components/Home/TopImg.vue'
 import Top from '../components/Home/Top.vue'
 import Search from '../components/Home/Search.vue'
 import CenterTop from '../components/Home/CenterTop.vue'
@@ -36,6 +38,7 @@ export default {
     ShopArea,
     NavBottom,
     Bottom,
+    TopImg
 
   },
   created(){
