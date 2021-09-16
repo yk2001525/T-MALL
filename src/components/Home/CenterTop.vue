@@ -180,15 +180,12 @@ export default {
       var sum = 0;
       var weight = 0;
       for (var i = 0; i < res.data.data.length; i++) {
-        // if (res.data.data[i].checked == true) {
         pricesum =
           pricesum + res.data.data[i].product_price * res.data.data[i].num;
         weight =
           weight + res.data.data[i].product_weight * res.data.data[i].num;
         console.log(weight);
-
         sum = sum + 1;
-        // }
       }
 
       this.totalweight = weight;
@@ -283,7 +280,6 @@ export default {
         var sum = 0;
         var weight = 0;
         for (var i = 0; i < list.length; i++) {
-          // if (res.data.data[i].checked == true) {
           pricesum =
             pricesum + list[i].product_price * list[i].num;
           weight =
@@ -291,7 +287,6 @@ export default {
           console.log(weight);
 
           sum = sum + 1;
-          // }
         }
 
         this.totalweight = weight;
@@ -329,9 +324,7 @@ export default {
       //1160 1840 2520 3200
       // 容器的高度
       // var offsetTop = document.querySelector("#nav").offsetHeight;
-
       // console.log("scrollTop=>", scrollTop, "  offsetTop=>", offsetTop);
-
       //  滚动的距离如果大于了元素到顶部的距离时，实现吸顶效果
       if (scrollTop > "120") {
         this.navBarFixed = true;
